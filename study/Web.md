@@ -12,6 +12,14 @@
 </details>
 
 <details>
+<summary> 웹 표준 웹 접근성 </summary>
+
+- 웹 표준은 어떤 환경에서도 이용할 수 있는 웹 페이지를
+- 웹 접근성은 어떤 사람이든 이용할 수 있는 웹 페이지를 만들 수 있는 방법
+
+</details>
+
+<details>
 <summary> Spring Framework란? </summary>
 
 ### Framework란
@@ -78,7 +86,19 @@ AOP는 관점지향프로그래밍의 약자로 핵심 비즈니스 로직에서
 
 </details>
 
+<details>
+<summary> @RequestBody, @RequestParam, @ModelAttribute의 차이 </summary>
 
+### @RequestParam
+1개의 HTTP 요청 파라미터를 받기 위해 사용
+
+### @RequestBody
+클라이언트가 전송하는 JSON 형태의 HTTP Body 내용을 MessageConverter를 통해 Java 객체로 변환함
+
+### @ModelAttribute
+HTTP Body와 HTTP 파라미터의 값들을 생성자, Getter, Setter를 통해 주입하기 위해 사용
+
+</details>
 
 <details>
 <summary> Spring MVC 에 대하여</summary>
@@ -184,7 +204,7 @@ AOP는 관점지향프로그래밍의 약자로 핵심 비즈니스 로직에서
 </details>
 
 
-1. @RequestBody, @RequestParam, @ModelAttribute의 차이
+
 
 <details>
 <summary> Spring Container </summary>
@@ -318,3 +338,35 @@ Fetch join은 inner join, Entity Graph는 outer join을 기본으로 함
 - Transactional을 메소드 또는 클래스에 명시하면, AOP를 통해 Target 객체를 상속한 Proxy 객체가 생성되며 Proxy 객체의 메소드를 호출하면 Target 메소드 전 후로 트랜잭션 처리를 수행
 
 </details>
+
+<details>
+<summary> SSR과 CSR </summary>
+
+### SSR
+Server Side Rendering
+- 서버쪽에서 렌더링 준비를 끝마친 상태로 클라이언트에 전달
+- 서버에서 이미 렌더 가능한 상태로 클라이언트에 전달, JS가 다운로드 되는 동안 사용자가 무언가를 보고 있을 수 있음
+
+### CSR
+Client Side Rendering
+- 렌더링이 클라이언트 쪽에서 일어남
+- 서버는 요청을 받으면 클라이언트에 HTML과 JS를 보냄, 클라이언트는 그것을 받아 렌더링을 시작
+- 서버에서 처리 없이 클라이언트로 보내기에 JS가 모두 다운로드되고 실행이 끝나기 전까지 사용자는 빈 화면을 보아야함
+
+### 차이
+- 첫페이지 로딩 시간
+  - SSR이 더 빠름. CSR은 모두 다운로드 된 이후에 첫 페이지가 나오기 때문
+- 나머지 로딩 시간
+  - CSR이 더 빠름. SSR은 매번 새로 로딩, CSR은 이미 로딩이 완료된 상태에서 바꾸는 것
+
+### 권장
+- SSR
+  - 네트워크가 느릴 때
+  - 메인 스크립트가 크고 로딩이 매우 느릴 때
+  - 최초 로딩이 빨라야하는 사이트
+- CSR
+  - 네트워크가 빠를 때
+  - 사용자에게 보여줘야 하는 데이터의 양이 많을 때
+  - 웹 어플리케이션에 사용자와 상호작용할 것들이 많을 때
+
+</details> 
