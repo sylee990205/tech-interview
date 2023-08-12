@@ -246,6 +246,14 @@ DIP 의존관계 역전의 원칙
 </details>
 
 <details>
+<summary> throw, throws 차이 </summary>
+
+- throw: 개발자가 의도적으로 예외를 던지는것
+- throws: 메소드 뒤에 붙여 예외 처리를 하는 것
+
+</details>
+
+<details>
 <summary> CheckedException과 UnCheckedException의 차이</summary>
 
 - CheckException은 실행 전 예측 가능한 예외를 말하며 반드시 예외 처리를 해야함. 대표적으로 IOException이 있음
@@ -376,9 +384,36 @@ Wrapper Class를 왜 사용하는가?
 
 <details>
 <summary> 직렬화 </summary>
+
+시스템 내부에서 사용되는 객체 또는 데이터를 외부의 시스템에서도 사용할 수 있도록 바이트 형태로 데이터를 변환하는 것
+
+### 역직렬화
+직렬화된 바이트 형태의 데이터를 다시 객체로 변환하는 과정
+
+### 꼬리질문1 - 자주 변경되는 코드라면 직렬화를 하는 것이 좋은가?
+- 아니다.
+- 역직렬화의 경우 타입에 민감하기때문에 자주 변경되는 코드라면 직렬화를 안하는 것이 좋음
+
  </details>
 
 
 <details>
 <summary> 리플렉션 </summary>
+구체적인 클래스 타입을 알지 못해도 그 클래스의 메소드, 타입, 변수들에 접근할 수 있도록 해주는 자바 API
+
+### 어떠한 경우에 사용되는가?
+코드 작성 시점에는 어떤 타입의 클래스를 사용할지 모르지만, 런타임 시점에 지금 실행되고 있는 클래스를 가져와서 실행해야 하는 경우 사용
+- ex) 스프링의 어노테이션
+
  </details>
+
+<details>
+<summary> 접근제어자 </summary>
+
+- public
+- protected
+- default
+- private
+
+
+</details>

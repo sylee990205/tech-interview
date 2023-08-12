@@ -72,8 +72,26 @@ HTTP란 데이터를 주고 받기 위한 서버와 클라이언트 간의 통�
 </details> 
 
 <details>
-<summary> 3 way-handshake, 4 way-handshake </summary>
+<summary> URL과 URI </summary>
 
+- URI: Uniform Resource Identifier, 자원 자체를 식별하는 방법
+  - URI의 하위 개념으로 URL이 있음
+- URL: Uniform Resource Locator, 자원이 어디 있는지 위치를 알려주는 것
+
+### 예시
+`http://www.google.com/index.html?page=5&id=10` 
+- URL은 `http://www.google.com/index.html` 까지
+- URI는 `?page=5&id=10`과 같이 자원의 식별자가 포함된 주소 전체
+</details> 
+
+<details>
+<summary> 3 way-handshake, 4 way-handshake </summary>
+TCP 네트워크에서 통신하는 장치를 다루는 방법
+
+- 3 way-handshake
+  - 통신하는 장치가 서로 연결이 잘 되었는지 확인하는 방법
+- 4 way-handshake
+  - 통신하는 장치의 연결을 해제하는 방법
 
 
 </details> 
@@ -81,8 +99,95 @@ HTTP란 데이터를 주고 받기 위한 서버와 클라이언트 간의 통�
 <details>
 <summary> OSI 7 layer </summary>
 
+- 7계층`응용` : 사용자에게 통신을 위한 서비스를 제공
+- 6계층`표현` : 데이터의 형식을 정의하는 계층
+- 5계층`세션` : 컴퓨터끼리 통신을 하기 위해 세션을 만드는 계층
+- 4계층`전송` : 최종 수신 프로세스로 데이터의 전송을 담당하는 계층
+  - 단위 Segment
+  - TCP, UDP
+- 3계층`네트워크` : 패킷을 목적지까지 가장 빠른길로 전송하기 위한 계층
+  - 단위 Packet
+  - Router
+- 2계층`데이터링크` : 데이터의 물리적인 전송과 에러 검출, 흐름 제어를 담당하는 계층
+  - 단위 frame
+  - 이더넷
+- 1계층`물리` : 데이터를 전기 신호로 바꾸어주는 계층
+  - 단위 bit
+  - 케이블, 리피터, 허브
+
 
 </details> 
+
+<details>
+<summary> JWT 토큰 </summary>
+Json Web Token으로 JSON 형식을 이용하여 인증에 필요한 정보들을 Token에 담아 암호화시키는 인터넷 표준 인증 방식
+
+- 헤더, 내용을 담는 payload, 서명으로 구성되며 각 파트를 점으로 구분
+- 각 부분은 BASE64로 인코딩 되어 표현
+- 토큰 자체 정보를 사용하는 Self-Contained 방식
+- 토큰 기반 인증 방식에 사용됨
+
+### Header(헤더)
+- 토큰의 타입과 해시 암호화 알고리즘으로 구성
+
+### Payload(내용)
+- 토큰에 사용자가 담고자 하는 정보를 담는 곳
+- 정보의 한 조각을 claim이라고 부르며 JSON 형태 key value 쌍으로 구성
+
+### Signature(서명)
+- 토큰을 인코딩하거나 유효성 검증 시 사용하는 고유한 암호화 코드
+- 헤더와 내용 값을 BASE64로 각각 인코딩하고, 인코딩한 값을 비밀키를 이용해 헤더에서 정의한 알고리즘으로 해싱하고, 이 값을 다시 BASE64로 인코딩하는 것
+
+</details> 
+
+<details>
+<summary> OAuth </summary>
+다양한 플랫폼 환경에서 권한 부여를 위한 산업 표준 프로토콜
+
+- 인증과 권한을 다른 플랫폼으로부터 획득하는 것
+- OAuth 1.0은 구현이 복잡하고 웹이 아닌 어플리케이션에서의 지원이 부족함
+- OAuth 2.0이 많이 사용됨
+
+### OAuth 2.0 흐름
+1. 사용자가 클라이언트에게 사용 요청을 보냄
+2. 클라이언트는 권한 서버에 권한 부여 승인 코드를 요청
+3. 권한 서버는 클라이언트에게 로그인 페이지를 제공하고 클라이언트가 사용자에게 출력하면 사용자는 로그인함
+4. 권한 서버가 권한 부여 승인 코드 요청 시 전달받은 redirect_url로 Authorization Code를 전달
+5. Authorization Code는 권한 서버에서 제공하는 API를 통해 Access Token으로 교환
+
+</details> 
+
+<details>
+<summary> access token, refresh token </summary>
+토큰 기반 인증에 사용되는 것으로, access token만 사용되던 기존의 방식에서 보안을 강화한 것
+
+- 토큰 기반 인증은 stateless하여 서버가 한번 발급한 토큰에 대한 제어권이 없음
+- 이런 토큰이 탈취된다면 사용자가 계정의 제어권을 그대로 넘겨줄 수 밖에 없다는 보안 문제가 있음
+- Refresh token: Access Token의 유효 기간을 짧고, 자주 재발급하도록 만들어 보안을 강화하면서 사용자에게 잦은 로그아웃 경험을 주지 않도록하는 것
+
+### 흐름
+1. 클라이언트가 로그인을 요청하고 성공하면, 서버는 access token과 refresh token을 함께 제공
+2. 클라이언트는 인가가 필요한 요청에 access token을 header에 담아 함께 보냄
+3. access token이 만료되었다면, 클라이언트는 refresh token을 서버로 전달
+4. 서버는 access token이 조작되지 않았는지 확인한 후, refresh token을 처음에 발급한 refresh token과 비교하여 동일하고 refresh token의 유효기간이 만료되지 않았다면 새로운 access token을 발급
+5. 새로운 access token을 헤더에 실어 다시 API 요청 응답을 진행
+6. 로그아웃 시 두 토큰을 모두 만료시킴
+
+</details> 
+
+<details>
+<summary> CORS </summary>
+CORS : Cross-Origin Resource Sharing
+
+- 서로 다른 2개의 사이트가 데이터를 주고 받을 때 발생하는 문제
+- 서버에서 Access-Control-Allow-Origin 헤더를 세팅하여 해결할 수 있음
+  - 전역적으로 CORS를 설정하거나
+  - Controller 상단에 `@CrossOrigin` 을 붙여 해결 
+
+
+</details> 
+
+
 
 <!-- 
 <details>

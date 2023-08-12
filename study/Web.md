@@ -65,6 +65,14 @@ AOP는 관점지향프로그래밍의 약자로 핵심 비즈니스 로직에서
 
 </details> 
 
+<details>
+<summary> Filter, Interceptor, AOP 처리 흐름 </summary>
+
+Filter와 Interceptor는 Servlet 단위에서 실행, AOP는 메소드 앞에 Proxy 패턴의 형태로 실행
+
+- Filter는 스프링 밖에서 실행, Interceptor는 스프링 영역 내 DispatcherServlet 진입 후에, AOP는 메소드 앞에
+
+</details>
 
 <details>
 <summary> Spring과 Spring Boot의 차이 </summary>
@@ -145,7 +153,6 @@ HTTP Body와 HTTP 파라미터의 값들을 생성자, Getter, Setter를 통해 
   - Controller 사용 후 return 타입에 @ResponseBody를 붙여 ResponseEntity를 반환하는 것과 흐름이 동일함
 
 </details>
-
 
 <details>
 
@@ -370,3 +377,25 @@ Client Side Rendering
   - 웹 어플리케이션에 사용자와 상호작용할 것들이 많을 때
 
 </details> 
+
+<details>
+<summary> Spring Security란?  </summary>
+Spring 기반의 애플리케이션의 보안을 담당하는 스프링 하위 프레임워크
+
+- 인증과 권한에 대한 부분을 Filter 흐름에 따라 처리
+
+### 꼬리질문1 - 인증과 인가란 무엇인가
+- 인증: 해당 사용자가 본인이 맞는지 확인하는 것
+- 인가: 인증된 사용자가 요청한 자원에 접근 가능한지를 결정하는것
+- 인증 성공 후 인가가 이루어질 수 있음
+
+</details>
+
+
+<!-- 
+<details>
+<summary> </summary>
+
+
+</details> 
+-->
