@@ -308,6 +308,7 @@ Wrapper Class를 왜 사용하는가?
 
 <details>
 <summary> Call by Value / Call by Reference </summary>
+
 - 메소드의 매개변수 호출 방식
 - Call by value는 값을 전달하는 것으로 a 메소드에서 보낸 값을 b에서 변경한다고 해도 a 메소드가 가지고 있던 본래의 값이 변화하지 않음
 - Call by reference는 객체의 참조값, 주소를 전달하는 것으로 a 메소드에서 보낸 객체를 b 메소드에서 변경하면 a 메소드가 가지고 있던 본래의 값 또한 변경되는 것
@@ -411,9 +412,63 @@ Wrapper Class를 왜 사용하는가?
 <summary> 접근제어자 </summary>
 
 - public
+  - 전체
 - protected
+  - 같은 패키지와 자손 클래스
 - default
+  - 같은 패키지
 - private
+  - 같은 클래스
 
 
 </details>
+
+<details>
+<summary> 쓰레드와 프로세스 </summary>
+
+- 프로세스는 메모리 상에서 실행중인 프로그램
+- 쓰레드는 이 프로세스 안에서 실행되는 흐름 단위
+
+</details>
+
+<details>
+<summary> Java 8 </summary>
+
+- 인터페이스 내에서 static과 defalut 메소드 사용 가능
+- 람다식 추가
+- stream 추가
+
+</details>
+
+<details>
+<summary> Hash table과 Hash map </summary>
+
+- Hash: 데이터를 다루는 기법 중 하나
+- Hash 함수: 데이터를 효율적으로 관리하고자 임의의 길이의 데이터를 고정된 길이의 데이터로 매핑
+- Key Value 값으로 매핑되는 과정을 해싱
+
+### 해시 테이블과 해시 맵
+- 해시 테이블과 해시 맵 모두 키, value 값을 사용하여 값을 저장, 조회하지만
+- hash table은 null 값을 허용하지 않고
+- hasp map은 null 값을 허용한다는 차이
+
+
+</details> 
+
+
+<details>
+<summary> DAO, DTO, VO </summary>
+
+- DAO : DB에 접근하기 위한 객체
+- DTO : 계층간 데이터 교환을 위한 객체
+- VO: 계층간 데이터 교환을 위해 사용되나 getter 기능만 존재
+
+</details> 
+
+
+<!-- 
+<details>
+<summary> </summary>
+
+</details> 
+-->

@@ -19,6 +19,11 @@
 4. 영속성 (Durability)
    - 완료된 결과는 영구적으로 반영되어야함
 
+### 트랜잭션의 상태
+
+
+### 트랜잭션
+
 </details>
 
 <details>
@@ -104,3 +109,31 @@ Not only SQL의 약자, RDBMS와 반대로 데이터간의 관계를 정의하�
 - 성능 문제가 있는 (읽기작업이 많이 필요한) DB의 전반적인 성능을 향상시키기 위함
 
 </details>
+
+<details>
+<summary> SQL Injection </summary>
+
+- SQL Injection이란 공격자가 악의적인 의도를 갖는 SQL 구문을 삽입하여 DB를 비정상적으로 조작하는 공격 기법
+
+</details> 
+
+<details>
+<summary> 파티셔닝 </summary>
+
+- DB를 여러 부분으로 분할하는 방법, DB가 너무 커져서 조회하는 시간이 길어질 때 성능 이슈를 방지하고자 사용
+
+- 수직 파티셔닝
+  - 같은 DB 내에서 분할
+  - 하나의 테이블의 각 행을 다른 테이블에 분산시키는 것
+- 샤딩
+  - 다른 DB를 하나 더 파는 것
+  - 다른 DB에 하나의 테이블의 각 행을 분산시키는 것
+
+</details> 
+
+<!-- 
+<details>
+<summary> </summary>
+
+</details> 
+-->

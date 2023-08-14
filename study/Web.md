@@ -3,12 +3,17 @@
 # 웹
 <details>
 <summary> WAS와 WS의 차이 </summary>
+
 - WS는 Web Server의 약어로 클라이언트가 브라우저 주소창에 어떤 url을 입력하여 페이지를 요청하면 http 요청을 받아 들여 정적인 콘텐츠를 사용자에게 전달해주는 것으로 비즈니스 로직을 넣을 수 없음
     - Nginx, Apache 등이 예시 
 
 - WAS는 Web Application Server의 약어로 클라이언트가 브라우저 주소창에 어떤 url을 입력하여 페이지를 요청하면 http 요청을 받아들여 동작함. 웹 서버가 할 수 있는 대부분의 기능 외에도 비즈니스 로직을 처리할 수 있어 사용자에게 동적인 콘텐츠 전달 가능
     - Tomcat, PHP, ASP 등
   
+
+### 사용 이점
+- WAS와 WS를 동시에 사용하면 WAS의 부하를 줄일 수 있음
+
 </details>
 
 <details>
@@ -42,9 +47,12 @@ IoC는 제어의 역전, 컨트롤의 제어권이 사용자가 아닌 프레임
 
 ### DI
 DI는 의존성 주입의 약자로 사용할 객체를 직접 생성하지 않고 외부로부터 주입받아 사용하는 것. 이를 통해 객체간의 결합도를 줄이고 코드 재사용성을 높일 수 있음
+  - DI는 생성자 주입이 권장되는데 그 이유는?
+    - 객체의 불변성을 확보할 수 있고, 순환 참조 에러를 애플리케이션 구동 시점에 파악하여 방지
 
 ### AOP
 AOP는 관점지향프로그래밍의 약자로 핵심 비즈니스 로직에서 로깅과 같은 공통 관심사항을 분리하여 모듈화하는 것을 의미함, 중복 코드를 제거하고 재활용성을 극대화할 수 있음
+
 
 </details>
 
@@ -71,6 +79,14 @@ AOP는 관점지향프로그래밍의 약자로 핵심 비즈니스 로직에서
 Filter와 Interceptor는 Servlet 단위에서 실행, AOP는 메소드 앞에 Proxy 패턴의 형태로 실행
 
 - Filter는 스프링 밖에서 실행, Interceptor는 스프링 영역 내 DispatcherServlet 진입 후에, AOP는 메소드 앞에
+
+</details>
+
+<details>
+<summary> Interceptor와 AOP의 차이 </summary>
+
+- Interceptor는 Servlet 단위에서 실행
+- AOP는 메소드 앞에 Proxy 패턴의 형태로 실행
 
 </details>
 
@@ -131,6 +147,13 @@ HTTP Body와 HTTP 파라미터의 값들을 생성자, Getter, Setter를 통해 
 - model1은 JSP 안에 HTML과 Java 코드를 전부 넣어 View와 Controller를 모두 jsp에서 구현하는 구조
 - model1로만 처리하기엔 사이트가 방대해져 model2가 나왔음
 - model2는 요청 받았을 때와 응답 할 때 처리할 기능을 나누는 것으로 MVC라고 말하는 것은 model2를 의미함
+
+</details>
+
+<details>
+<summary> Model 객체 </summary>
+
+- view에 전달할 데이터를 key, Value 형식으로 전달하는 객체
 
 </details>
 
@@ -215,6 +238,11 @@ HTTP Body와 HTTP 파라미터의 값들을 생성자, Getter, Setter를 통해 
 
 <details>
 <summary> Spring Container </summary>
+
+- 스프링 프레임워크의 핵심 컴포넌트
+- 스프링 내부에 존재하는 빈의 생명 주기를 관리하며, 생성된 빈에게 추가적인 기능을 제공하는 것
+
+
 </details>
 
 <details>
@@ -296,6 +324,7 @@ Fetch join은 inner join, Entity Graph는 outer join을 기본으로 함
 
 <details>
 <summary> fetch join </summary>
+
 - 미리 두 테이블을 Join하여 한번에 모든 데이터를 가져오는 방법
 - JPQL을 사용하여 두 테이블을 JOIN하는 쿼리를 직접 작성하는 것
 - Inner join을 기본으로 함
@@ -390,6 +419,15 @@ Spring 기반의 애플리케이션의 보안을 담당하는 스프링 하위 �
 - 인증 성공 후 인가가 이루어질 수 있음
 
 </details>
+
+<details>
+<summary> annotation </summary>
+
+- 사전적 의미로 주석이며, 코드 사이 사이에 작성해 특별한 의미, 기능을 수행하도록 하는 기술
+- @ 기호와 함께 사용
+- @Controller, @Service
+
+</details> 
 
 
 <!-- 
