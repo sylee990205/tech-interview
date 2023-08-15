@@ -16,7 +16,7 @@
 <details>
 <summary> git과 github의 차이점 </summary>
   
-- git은 local 저장소
+- git은 local 저장소에 저장
 - github는 원격 저장소
 
 </details> 
@@ -39,6 +39,21 @@
 - 모놀리식은 하나의 시스템을 하나의 서비스로 개발하는 것
 
 </details> 
+
+<details>
+<summary> ArrayList, LinkedList </summary>
+
+ArrayList 단방향 포인터구조
+LinkedList 양방향 포인터 구조
+
+</details> 
+
+<details>
+<summary> Kubernetes </summary>
+
+- 컨테이너화된 애플리케이션의 배포 및 확장을 자동화하는 시스템
+
+</details>
 
 <!-- 
 <details>

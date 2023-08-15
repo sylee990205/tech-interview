@@ -57,7 +57,8 @@ AOP는 관점지향프로그래밍의 약자로 핵심 비즈니스 로직에서
 </details>
 
 <details>
-<summary> Filter와 Interceptor </summary>
+<summary> Filter와 Interceptor, AOP </summary>
+3가지 모두 공통된 로직을 사용하기 위한 것
 
 ### Filter
 - 요청과 응답을 거른 뒤 정제하는 역할
@@ -70,6 +71,10 @@ AOP는 관점지향프로그래밍의 약자로 핵심 비즈니스 로직에서
 - 스프링 컨텍스트에서 동작
 - Dispatcher Servlet이 Controller를 호출하기 전 / 후에 인터셉터가 요청과 응답을 참조하거나 가공
 - API 호출에 대한 로깅, Controller로 넘겨주는 정보의 가공
+
+
+### AOP
+- AOP는 메소드 앞에 Proxy 패턴의 형태로 실행
 
 </details> 
 
@@ -111,6 +116,18 @@ Filter와 Interceptor는 Servlet 단위에서 실행, AOP는 메소드 앞에 Pr
 </details>
 
 <details>
+<summary> Bean의 생명주기 </summary>
+
+1. 스프링 IoC 컨테이너 생성
+2. 스프링 빈 생성
+3. 의존관계 주입
+4. 초기화 콜백 메소드 호출
+5. 소멸 전 콜백 메소드 호출
+6. 스프링 종료
+
+</details>
+
+<details>
 <summary> @RequestBody, @RequestParam, @ModelAttribute의 차이 </summary>
 
 ### @RequestParam
@@ -142,6 +159,10 @@ HTTP Body와 HTTP 파라미터의 값들을 생성자, Getter, Setter를 통해 
 6. DispatcherServlet은 뷰 리졸버를 통해 반환할 뷰를 찾음
 7. DispatcherServlet이 컨트롤러에서 뷰에 전달할 데이터를 추가
 8. 데이터가 추가된 뷰를 반환
+
+#### DispatcherServlet이란?
+디스패처 서블릿이란 서블릿 컨테이너의 가장 앞단에서 HTTP 프로토콜로 들어오는 모든 요청을 먼저 받아 적합한 컨트롤러에 위임해주는 프론트 컨트롤러
+
 
 #### MVC model1과 model2의 차이
 - model1은 JSP 안에 HTML과 Java 코드를 전부 넣어 View와 Controller를 모두 jsp에서 구현하는 구조
@@ -265,6 +286,7 @@ Object Relational Mapping의 약어로 객체-관계 매핑 기술입니다. DB 
 
 ### 꼬리질문3 - Spring Data JPA와 JPA의 차이
 - Spring Data JPA는 JPA 기반 애플리케이션 개발을 보다 간편하게 만드는 라이브러리
+- JPA는 EntityManager를 사용해야하지만 Spring Data JPA는 Repository 인터페이스를 통해 구현 가능
 
 ### 꼬리질문4 - JPA와 MyBatis 비교
 - MyBatis는 Mapper를 작성해야했으나 JPA는 Mapper가 없었고, 대부분 메소드 이름으로 해결할 수 있어 SQL 문을 직접 작성하지 않아도 해결이 가능해 좋았음
@@ -411,7 +433,7 @@ Client Side Rendering
 <summary> Spring Security란?  </summary>
 Spring 기반의 애플리케이션의 보안을 담당하는 스프링 하위 프레임워크
 
-- 인증과 권한에 대한 부분을 Filter 흐름에 따라 처리
+- 인증과 인가에 대한 부분을 Filter 흐름에 따라 처리
 
 ### 꼬리질문1 - 인증과 인가란 무엇인가
 - 인증: 해당 사용자가 본인이 맞는지 확인하는 것
@@ -426,6 +448,37 @@ Spring 기반의 애플리케이션의 보안을 담당하는 스프링 하위 �
 - 사전적 의미로 주석이며, 코드 사이 사이에 작성해 특별한 의미, 기능을 수행하도록 하는 기술
 - @ 기호와 함께 사용
 - @Controller, @Service
+
+</details> 
+
+<details>
+<summary> Servlet </summary>
+
+클라이언트의 요청을 처리하고, 그 결과를 반환하는 Servlet 클래스의 구현 규칙을 지킨 자바 웹 프로그래밍 기술
+
+- 자바를 사용해 웹을 만들기 위해 필요한 기술
+  
+### 동작 방식
+1. 사용자가 URL을 입력하면 HTTP Request가 Servlet Container로 전송
+2. 요청 받은 컨테이너는 HttpServletRequest, HttpServletResponse 객체를 생성
+3. web.xml을 기반으로 요청한 URL이 어느 서블릿에 대한 요청인지 찾음
+4. 해당 서블릿에서 service 메소드 호출 후 GET, POST 여부에 따라 doGet, doPost를 호출
+5. doGet, doPost 메소드는 동적 페이지를 생성한 후 HttpServletResponse 객체에 응답을 보냄
+6. HttpServletRequest, HttpServletResponse 두 객체를 소멸
+
+</details> 
+
+<details>
+<summary> Spring Scope </summary>
+
+빈이 존재할 수 있는 범위
+
+</details> 
+
+<details>
+<summary> 롬복 라이브러리 </summary>
+
+어노테이션을 통해 공통된 코드의 작성을 줄여주는 라이브러리
 
 </details> 
 
