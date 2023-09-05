@@ -96,6 +96,11 @@ Filter와 Interceptor는 Servlet 단위에서 실행, AOP는 메소드 앞에 Pr
 </details>
 
 <details>
+<summary> DispatcherServlet </summary>
+디스패처 서블릿이란 서블릿 컨테이너의 가장 앞단에서 HTTP 프로토콜로 들어오는 모든 요청을 먼저 받아 적합한 컨트롤러에 위임해주는 프론트 컨트롤러
+</details>
+
+<details>
 <summary> Spring과 Spring Boot의 차이 </summary>
 
 - Spring은 Java 기반 오픈 소스 프레임워크이며 대표적인 특징으로 DI, IoC, AOP가 있음
@@ -159,10 +164,6 @@ HTTP Body와 HTTP 파라미터의 값들을 생성자, Getter, Setter를 통해 
 6. DispatcherServlet은 뷰 리졸버를 통해 반환할 뷰를 찾음
 7. DispatcherServlet이 컨트롤러에서 뷰에 전달할 데이터를 추가
 8. 데이터가 추가된 뷰를 반환
-
-#### DispatcherServlet이란?
-디스패처 서블릿이란 서블릿 컨테이너의 가장 앞단에서 HTTP 프로토콜로 들어오는 모든 요청을 먼저 받아 적합한 컨트롤러에 위임해주는 프론트 컨트롤러
-
 
 #### MVC model1과 model2의 차이
 - model1은 JSP 안에 HTML과 Java 코드를 전부 넣어 View와 Controller를 모두 jsp에서 구현하는 구조
@@ -448,23 +449,6 @@ Spring 기반의 애플리케이션의 보안을 담당하는 스프링 하위 �
 - 사전적 의미로 주석이며, 코드 사이 사이에 작성해 특별한 의미, 기능을 수행하도록 하는 기술
 - @ 기호와 함께 사용
 - @Controller, @Service
-
-</details> 
-
-<details>
-<summary> Servlet </summary>
-
-클라이언트의 요청을 처리하고, 그 결과를 반환하는 Servlet 클래스의 구현 규칙을 지킨 자바 웹 프로그래밍 기술
-
-- 자바를 사용해 웹을 만들기 위해 필요한 기술
-  
-### 동작 방식
-1. 사용자가 URL을 입력하면 HTTP Request가 Servlet Container로 전송
-2. 요청 받은 컨테이너는 HttpServletRequest, HttpServletResponse 객체를 생성
-3. web.xml을 기반으로 요청한 URL이 어느 서블릿에 대한 요청인지 찾음
-4. 해당 서블릿에서 service 메소드 호출 후 GET, POST 여부에 따라 doGet, doPost를 호출
-5. doGet, doPost 메소드는 동적 페이지를 생성한 후 HttpServletResponse 객체에 응답을 보냄
-6. HttpServletRequest, HttpServletResponse 두 객체를 소멸
 
 </details> 
 

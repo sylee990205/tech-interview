@@ -109,6 +109,20 @@ Java는 객체지향 프로그래밍 언어로 기본 자료형을 제외한 모
 </details>
 
 <details>
+<summary> 동기화, 비동기화 </summary>
+
+### 동기화
+- 한 자원에 동시에 접근하는 것을 제한
+- 동시 접근이 불가능하기때문에 순차적으로 접근
+- 다음 실행 명령은 현재 실행 중인 명령이 종료될 때까지 대기
+
+### 비동기화
+- 현재 실행 중인 명령이 종료되지 않아도 다음 명령을 실행할 수 있는 것
+- Ajax 등이 있음
+
+</details> 
+
+<details>
 <summary> Synchronized </summary>
 멀티 쓰레드 환경에서 사용되는 키워드로 동기화
 
@@ -148,6 +162,14 @@ Java는 객체지향 프로그래밍 언어로 기본 자료형을 제외한 모
   - 왜 Heap 영역인가? -> 객체가 새로 생성되면 Heap 영역에 되기때문
   - 더이상 참조되지않는다는 것 객체가 null 이 되는 것
 - 개발자가 코드로 호출할 필요 없이 JVM이 백그라운드에서 자동적으로 수행
+
+### 장점
+- 개발자가 동적으로 할당한 메모리 영역을 관리하지 않아도 되며 메모리 누수 등의 버그를 줄일 수 있음
+  
+### 단점
+- 어떤 메모리를 해제할지 결정하는데 추가 비용 발생
+- 메모리를 해제하는 시점이나 점유 시간을 예측할 수 없음
+  - 프로그램이 예측 불가능하게 일시적으로 정지할 수 있다는 단점
 </details>
 
 <details>
@@ -334,7 +356,7 @@ Wrapper Class를 왜 사용하는가?
 <summary> collection </summary>
 
 - 배열 사용 시 크기가 고정적이고 데이터 삭제 시 해당 인덱스의 데이터가 비면서 메모리가 낭비되는 등의 문제점이 있었음
-- 이러한 문제없이 다수의 데이터를 효율적으로 관리하고자 만들어진 자료구조들이 있는 라이브러리
+- 이러한 문제없이 다수의 데이터를 효율적으로 관리하고자 만들어진 자료구조들이 있는 프레임워크
 - collection framework에는 List, Set, Map 등이 있음
 
 ### List
@@ -486,6 +508,33 @@ Vector는 동기화된 메소드로 구성되어있어, 멀티 스레드가 동�
 ### 왜 사용하는가?
 
 - 서로 관련 있는 클래스를 논리적으로 묶어서 표현함으로써 캡슐화를 증가시키고 코드 복잡성을 낮출 수 있음
+
+</details> 
+
+<details>
+<summary> Servlet </summary>
+
+클라이언트의 요청을 처리하고, 그 결과를 반환하는 Servlet 클래스의 구현 규칙을 지킨 자바 웹 프로그래밍 기술
+
+- 자바를 사용해 웹을 만들기 위해 필요한 기술
+  
+### 동작 방식
+1. 사용자가 URL을 입력하면 HTTP Request가 Servlet Container로 전송
+2. 요청 받은 컨테이너는 HttpServletRequest, HttpServletResponse 객체를 생성
+3. web.xml을 기반으로 요청한 URL이 어느 서블릿에 대한 요청인지 찾음
+4. 해당 서블릿에서 service 메소드 호출 후 GET, POST 여부에 따라 doGet, doPost를 호출
+5. doGet, doPost 메소드는 동적 페이지를 생성한 후 HttpServletResponse 객체에 응답을 보냄
+6. HttpServletRequest, HttpServletResponse 두 객체를 소멸
+
+</details> 
+
+<details>
+<summary> SerialVersionUID </summary>
+
+- 직렬화 시 Class의 버전 아이디를 설정하는 것
+- 직접 설정하지 않을 시 컴파일러가 계산한 값을 부여함
+- 컴파일러는 SerialVersionUID 설정 시 Serializable class 혹은 Outer Class를 참고하여 만들기 때문에 클래스 변경 시 UID가 변경될 수 있음
+- 따라서 직렬화 시와 역직렬화 시 SerialVersionUID가 다름에서 오는 예외가 발생할 수 있기때문에 직접 지정해야함
 
 </details> 
 
