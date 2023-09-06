@@ -514,7 +514,8 @@ Vector는 동기화된 메소드로 구성되어있어, 멀티 스레드가 동�
 <details>
 <summary> Servlet </summary>
 
-클라이언트의 요청을 처리하고, 그 결과를 반환하는 Servlet 클래스의 구현 규칙을 지킨 자바 웹 프로그래밍 기술
+클라이언트의 요청을 처리하고, 그 결과를 동적인 웹 페이지를 생성하며 반환하는 자바 웹 프로그래밍 기술
+- Spring MVC에서 Controller로 이용되며, 사용자의 요청을 받아 처리한 후 결과를 반환
 
 - 자바를 사용해 웹을 만들기 위해 필요한 기술
   
@@ -538,6 +539,34 @@ Vector는 동기화된 메소드로 구성되어있어, 멀티 스레드가 동�
 
 </details> 
 
+<details>
+<summary> JSP란? </summary>
+
+Java Server Page의 약어
+- 하나의 파일 내 동적으로 처리하려는 부분을 JSP의 태그와 Java 코드를 삽입하여 웹 컨텐츠를 구현하는 HTML과 함께 구현하는 기술
+- 실행 시 Java Servlet으로 변환된 후 실행
+
+
+</details> 
+
+<details>
+<summary> MyBatis란? </summary>
+
+- Object Mapping 기술로 자바에서 SQL Mapper를 지원해주는 프레임워크
+- SQL을 직접 작성하여 객체와 매핑시키는 것으로 ORM과 다르다
+  
+### SQL Mapper
+- SQL문을 사용하여 RDB에 접근하고, 데이터를 객체화함
+
+### 장점
+- SQL문을 잘알고 사용할 수 있다면 간단히 사용할 수 있다는 장점
+- 동적 쿼리 구현이 가능함
+
+### 단점
+- DB 설정 변경 시 많은 부분을 직접 수정해야함
+- Mapper 작성부터 인터페이스 설계까지 JPA보다 많은 설계와 파일, 로직이 필요
+
+</details> 
 
 <!-- 
 <details>
